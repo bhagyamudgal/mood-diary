@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mood Diary - Developed by Bhagya Mudgal</title>
+
+    <link rel="icon" type="image/png" href="public/favicon.png" />
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+
+<body>
+
+    <main class="main">
+        <h1 class="heading">Mood Diary</h1>
+        <h2 class="heading-2">Developed By Bhagya Mudgal</h2>
+        <p class="text">Set and get your mood by interacting with smart contract on Ethereum blockchain. Transactions
+            takes
+            some time to get confirmed and reflect change.</p>
+
+        <div class="set-container">
+            <input class="input" type="text" id="set-mood-input" placeholder="Enter your mood" />
+            <button class="button" type="button" id="set-button">Set Mood</button>
+        </div>
+
+        <div class="get-container">
+            <input class="input" type="text" id="get-mood-input" disabled />
+            <button class="button" type="button" id="get-button">Get Mood</button>
+        </div>
+
+    </main>
+
+
+</body>
+
+<script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="index.js"></script>
+
+</html>
