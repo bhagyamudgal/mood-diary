@@ -44,6 +44,7 @@ body {
 .input {
 	padding: 0.5rem;
 	margin-right: 1rem;
+	width: 160px;
 }
 
 .button {
@@ -57,4 +58,10 @@ body {
 
 .button:hover {
 	background-color: #725add;
+}
+
+.button:disabled {
+	background-color: grey;
+	color: black;
+	cursor: not-allowed;
 }

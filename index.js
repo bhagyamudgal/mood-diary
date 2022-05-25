@@ -57,11 +57,31 @@ const showToast = (message) => {
 	}).showToast();
 };
 
+const startLoading = (functionName) => {
+	if (functionName === "set") {
+		setButton.textContent = "Setting Mood";
+		setButton.disabled = true;
+	} else if (functionName === "get") {
+		getButton.textContent = "Getting Mood";
+		getButton.disabled = true;
+	}
+};
+
+const endLoading = () => {
+	setButton.textContent = "Set Mood";
+	getButton.textContent = "Get Mood";
+	setButton.disabled = false;
+	getButton.disabled = false;
+};
+
 const setMood = async (moodValue) => {
 	try {
+		startLoading("set");
 		await MoodContract.setMood(moodValue);
+		endLoading();
 		showToast("Mood set successfully!");
 	} catch (error) {
+		endLoading();
 		console.log({ setMoodError: error });
 		showToast("Some error occurred!");
 	}
@@ -69,9 +89,18 @@ const setMood = async (moodValue) => {
 
 const getMood = async () => {
 	try {
+		startLoading("get");
 		const moodValue = await MoodContract.getMood();
-		getInput.value = moodValue;
+
+		if (moodValue) {
+			getInput.value = moodValue;
+		} else {
+			getInput.value = "";
+		}
+
+		endLoading();
 	} catch (error) {
+		endLoading();
 		console.log({ getMoodError: error });
 		showToast("Some error occurred!");
 	}
